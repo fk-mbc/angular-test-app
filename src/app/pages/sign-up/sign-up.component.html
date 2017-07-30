@@ -1,3 +1,9 @@
-<p>
-  sign-up works!
-</p>
+<h1>Sign up</h1>
+<form (ngSubmit)="onSubmit()" [formGroup]="signupForm">
+  <div *ngFor="let card of cards" class="form-row">
+
+    <app-content-card [title]="card.title" [text]="card.text">
+
+    </app-content-card>
+  </div>
+</form>

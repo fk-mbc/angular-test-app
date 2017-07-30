@@ -3,11 +3,11 @@
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="#">Test App</a>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item" routerLinkActive="active" *ngFor="let route of mainRoutes">
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" *ngFor="let route of mainRoutes">
         <a class="nav-link" [routerLink]="route.path">{{route.data.name}}</a>
       </li>
     </ul>

@@ -4,6 +4,10 @@ import { CommonModule } from '@angular/common';
 
 import { HomeComponent } from './pages/home/home.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { LoginComponent } from './pages/login/login.component';
+import { UserComponent } from './pages/user/user.component';
+
+import { LoginGuard } from './guards/login.guard';
 
 export const routes = [
   {
@@ -23,11 +27,35 @@ export const routes = [
       title: 'Get into it'
     },
     path: 'sign-up',
+  },
+  {
+    children: [],
+    component: LoginComponent,
+    data: {
+      name: 'Login',
+      title: 'Login'
+    },
+    path: 'login',
+  },
+  {
+    canActivate: [LoginGuard],
+    children: [],
+    component: UserComponent,
+    data: {
+      name: 'User',
+      title: 'User'
+    },
+    path: 'user',
   }
-]
+];
+
+export const routingProviders = [LoginGuard];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [
+    routingProviders
+  ]
 })
 export class AppRoutingModule { }
